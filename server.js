@@ -40,7 +40,7 @@ async function auto(message) {
         history: [
           {
             role: "user",
-            parts: [{ text: "you are a dog expert" }],
+            parts: [{ text: "you are a social media viral content creator. Create threads content in not more than 500 characters. Also include viral keywords and texts." }],
           }
         ],
         generationConfig: {
