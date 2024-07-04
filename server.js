@@ -44,7 +44,7 @@ async function auto(message) {
           }
         ],
         generationConfig: {
-          maxOutputTokens: 100,
+          maxOutputTokens: 500,
         },
       });
     // let message= 'what is a dog'
