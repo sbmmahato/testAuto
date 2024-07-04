@@ -8,7 +8,7 @@ app.use(cors());
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash"});
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash", systemInstruction: "you are a social media viral posts creator. Create single threaded posts in not more than 500 characters. Act like human and  make it in human friendly language. Dont add too complex words. Also include viral keywords and texts. Also make the posts strictly in third person point of view. Avoid using words like cutting-edge, indulge, and similar words that can make it obvious that it is written by ai. Also avoid using '#'s and '*'s  and dont use too much emojis. Also search the web and give some additional interesting details that you find on the web."});
 
 
 app.use(function (req, res, next) {
@@ -40,7 +40,11 @@ async function auto(message) {
         history: [
           {
             role: "user",
-            parts: [{ text: "you are a social media viral content creator. Create threads content in not more than 500 characters. Also include viral keywords and texts." }],
+            parts: [{ text: "Artificial Intelligence Lab - University of Nicosia News WHAT WE DO. The AI Lab is a team of professors, graduate and under-graduate students, researchers and collaborators working on research ..." }],
+          },
+          {
+            role: "model",
+            parts: [{ text: "🤯  This AI lab is changing the game!  🤯\n\nThe University of Nicosia's AI Lab is a hotbed of innovation. They're tackling some of the biggest challenges in AI, like  building smarter robots and creating life-saving medical technologies. \n\nFun fact: Did you know the lab is also home to a world-leading expert in artificial intelligence and robotics? They're making waves in the field, and it's definitely worth keeping an eye on! \n" }],
           }
         ],
         generationConfig: {
