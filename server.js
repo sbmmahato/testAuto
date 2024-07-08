@@ -38,8 +38,9 @@ app.get('/startautomation', async (req, res) => {
 let val=await req.query.val;
 let x=await auto(val);
 const x1=x.replaceAll('*','');
+const x2=x1.replaceAll('#','');
 return await res.json({
-  text:x1,
+  text:x2,
   image:randomElement
 });
 });
