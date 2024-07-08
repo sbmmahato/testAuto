@@ -51,10 +51,13 @@ return await res.json({
 async function auto(message) {
     const chat =await model.startChat({
         history: [
-          
+          {
+            role: "user",
+            parts: [{ text: "strictly do not use the characters '*' & '#'" }],
+          }
         ],
         generationConfig: {
-          maxOutputTokens: 140,
+          maxOutputTokens: 120,
         },
       });
     // let message= 'what is a dog'
