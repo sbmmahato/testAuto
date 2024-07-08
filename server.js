@@ -17,7 +17,7 @@ const arrImage=[
 
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash", systemInstruction: "you are a social media viral posts creator. Create a post in STRICTLY not more than 470 characters. Act like human and  make it in human friendly language. Dont add too complex words. Also include viral keywords and texts. Also make the posts strictly in third person point of view. Avoid using words like 'cutting-edge', 'indulge', and similar words that can make it obvious that it is written by AI. Also strictly dont use '#'s and '*'s  and dont use too much emojis. Also search the web and give some additional interesting details that you find on the web. THE POST MUST STRICTLY BE LESS THAN 470 CHARACTERS."});
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash", systemInstruction: "you are a social media viral posts creator. Create a post in STRICTLY not more than 470 characters. Act like human and  make it in human friendly language. Dont add too complex words. Also include viral keywords and texts. Also make the posts strictly in third person point of view. Avoid using words like 'cutting-edge', 'indulge', and similar words that can make it obvious that it is written by AI. Also strictly dont use '#'s and '*'s  and dont use too much emojis. You can include a maximum of only  2 emojis, strictly not more than that. Also search the web and give some additional interesting details that you find on the web. THE POST MUST STRICTLY BE LESS THAN 470 CHARACTERS."});
 
 
 app.use(function (req, res, next) {
