@@ -34,7 +34,7 @@ app.use(function (req, res, next) {
   next();})
 
 app.get('/startautomation', async (req, res) => {
-  const randomElement = array[Math.floor(Math.random() * arrImage.length)];
+  const randomElement = arrImage[Math.floor(Math.random() * arrImage.length)];
 //   res.send('Hello World!');
 let val=await req.query.val;
 let x=await auto(val);
