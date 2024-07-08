@@ -6,9 +6,18 @@ require('dotenv').config();
 const cors=require('cors');
 app.use(cors());
 
+const arrImage=[
+  'https://images.ctfassets.net/lzny33ho1g45/2olcy4TVSWAjqy5dsxLNZd/c9e889eebe44cebf52990f09270ac2d4/best-image-generators.jpg?w=1520&fm=jpg&q=30&fit=thumb&h=760',
+  'https://miro.medium.com/v2/resize:fit:1400/0*SX1wk6SnUterB4n8',
+  'https://aicontentexpert.co.uk/wp-content/uploads/2024/02/AI-Tool-Finder-Discover-The-Perfect-AI-Tool-For-Your-Needs-1024x576.png',
+  'https://img.etimg.com/thumb/width-420,height-315,imgsize-440978,resizemode-75,msid-108654079/news/company/corporate-trends/the-new-ai-disruption-tool-devine-or-devil-for-software-engineers.jpg',
+  'https://media.licdn.com/dms/image/D4D12AQHtNPrU1ReSGg/article-cover_image-shrink_600_2000/0/1689416513131?e=2147483647&v=beta&t=7g-ElgA6STeyCcO0Okwdxnw_Ou_dXCNn5mH1zjnXgHI',
+  'https://static.wixstatic.com/media/9d806f_5bccf0bd9f5e4ebeb944e6901dfd93ca~mv2.png/v1/fill/w_596,h_596,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/9d806f_5bccf0bd9f5e4ebeb944e6901dfd93ca~mv2.png'
+];
+
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash", systemInstruction: "you are a social media viral posts creator. Create single threaded posts in not more than 500 characters. Act like human and  make it in human friendly language. Dont add too complex words. Also include viral keywords and texts. Also make the posts strictly in third person point of view. Avoid using words like cutting-edge, indulge, and similar words that can make it obvious that it is written by ai. Also avoid using '#'s and '*'s  and dont use too much emojis. Also search the web and give some additional interesting details that you find on the web."});
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash", systemInstruction: "you are a social media viral posts creator. Create a post in STRICTLY not more than 480 characters. Act like human and  make it in human friendly language. Dont add too complex words. Also include viral keywords and texts. Also make the posts strictly in third person point of view. Avoid using words like 'cutting-edge', 'indulge', and similar words that can make it obvious that it is written by AI. Also avoid using '#'s and '*'s  and dont use too much emojis. Also search the web and give some additional interesting details that you find on the web."});
 
 
 app.use(function (req, res, next) {
@@ -25,10 +34,14 @@ app.use(function (req, res, next) {
   next();})
 
 app.get('/startautomation', async (req, res) => {
+  const randomElement = array[Math.floor(Math.random() * arrImage.length)];
 //   res.send('Hello World!');
 let val=await req.query.val;
 let x=await auto(val);
-return await res.json({text:x});
+return await res.json({
+  text:x,
+  image:randomElement
+});
 });
 
 
