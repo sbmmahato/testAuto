@@ -10,7 +10,6 @@ const arrImage=[
   'https://images.ctfassets.net/lzny33ho1g45/2olcy4TVSWAjqy5dsxLNZd/c9e889eebe44cebf52990f09270ac2d4/best-image-generators.jpg?w=1520&fm=jpg&q=30&fit=thumb&h=760',
   'https://miro.medium.com/v2/resize:fit:1400/0*SX1wk6SnUterB4n8',
   'https://aicontentexpert.co.uk/wp-content/uploads/2024/02/AI-Tool-Finder-Discover-The-Perfect-AI-Tool-For-Your-Needs-1024x576.png',
-  'https://img.etimg.com/thumb/width-420,height-315,imgsize-440978,resizemode-75,msid-108654079/news/company/corporate-trends/the-new-ai-disruption-tool-devine-or-devil-for-software-engineers.jpg',
   'https://media.licdn.com/dms/image/D4D12AQHtNPrU1ReSGg/article-cover_image-shrink_600_2000/0/1689416513131?e=2147483647&v=beta&t=7g-ElgA6STeyCcO0Okwdxnw_Ou_dXCNn5mH1zjnXgHI',
   'https://static.wixstatic.com/media/9d806f_5bccf0bd9f5e4ebeb944e6901dfd93ca~mv2.png/v1/fill/w_596,h_596,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/9d806f_5bccf0bd9f5e4ebeb944e6901dfd93ca~mv2.png'
 ];
@@ -38,8 +37,9 @@ app.get('/startautomation', async (req, res) => {
 //   res.send('Hello World!');
 let val=await req.query.val;
 let x=await auto(val);
+const x1=x.replaceAll('*','');
 return await res.json({
-  text:x,
+  text:x1,
   image:randomElement
 });
 });
