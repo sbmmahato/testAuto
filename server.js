@@ -51,17 +51,10 @@ return await res.json({
 async function auto(message) {
     const chat =await model.startChat({
         history: [
-          {
-            role: "user",
-            parts: [{ text: "Artificial Intelligence Lab - University of Nicosia News WHAT WE DO. The AI Lab is a team of professors, graduate and under-graduate students, researchers and collaborators working on research ..." }],
-          },
-          {
-            role: "model",
-            parts: [{ text: "🤯  This AI lab is changing the game!  🤯\n\nThe University of Nicosia's AI Lab is a hotbed of innovation. They're tackling some of the biggest challenges in AI, like  building smarter robots and creating life-saving medical technologies. \n\nFun fact: Did you know the lab is also home to a world-leading expert in artificial intelligence and robotics? They're making waves in the field, and it's definitely worth keeping an eye on! \n" }],
-          }
+          
         ],
         generationConfig: {
-          maxOutputTokens: 500,
+          maxOutputTokens: 140,
         },
       });
     // let message= 'what is a dog'
